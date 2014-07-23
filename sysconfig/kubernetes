@@ -1,0 +1,101 @@
+###
+# kubernetes system config
+#
+# The following values are used to configure various aspects of kubernetes
+# services.
+#
+#   kubernetes-apiserver.service
+#   kubernetes-controller-manager.service
+#   kubernetes-kubelet.service
+#   kubernetes-proxy.service
+#
+#
+
+##### GLOBAL
+# These items are used across all service components.
+
+KUBE_MASTER="127.0.0.1:8080"
+
+# Comma delimited list
+KUBE_MACHINES="127.0.0.1"
+
+# Comma delimited list
+KUBE_ETCD_SERVERS="http://127.0.0.1:4001"
+
+KUBE_LOGTOSTDERR="false"
+
+KUBE_ALSOLOGTOSTDERR="false"
+
+# upstream default
+KUBE_LOG_FLUSH_FREQ="5s"
+
+KUBE_LOG_DIR="/var/log/kubernetes/"
+
+KUBE_CLOUD_PROVIDER=''
+
+KUBE_HEALTH_CHECK_MINIONS='false'
+
+# upstream default
+KUBE_MINION_CACHE_TTL="30s"
+
+# upstream default
+KUBE_MINION_PORT="10250"
+
+KUBE_MINION_REGEX=''
+
+##### API SERVER
+# Items specific to kubernetes-apiserver.service
+KUBE_API_ADDRESS="127.0.0.1"
+
+KUBE_API_PORT="8080"
+
+# upstream default
+KUBE_API_PREFIX="/api/v1beta1"
+
+
+# upstream default
+KUBE_API_LOG_LEVEL=0
+
+##### CONTROLLER MANAGER
+# Items specific to kubernetes-controller-manager.service
+KUBE_CONTROLLER_MANAGER_LOG_LEVEL=0
+
+##### KUBELET
+# Items specific to kubernetes-kubelet.service
+KUBE_KUBELET_ADDRESS="127.0.0.1"
+
+KUBE_KUBELET_PORT="10250"
+
+KUBE_KUBELET_HOSTNAME_OVERRIDE="127.0.0.1"
+
+KUBE_KUBELET_CONFIG=''
+
+KUBE_KUBELET_DOCKER_ENDPOINT=''
+
+KUBE_KUBELET_INFO_SERVER="true"
+
+# upstream default
+KUBE_KUBELET_CONFFILE_CHECK_FREQ="20s"
+
+# upstream default
+KUBE_KUBELET_HTTP_CHECK_FREQ="20s"
+
+KUBE_KUBELET_MANIFEST_URL=''
+
+# upstream default
+KUBE_KUBELET_ROOT_DIR='/var/lib/kubelet'
+
+# upstream default
+KUBE_KUBELET_SYNC_FREQ="10s"
+
+# upstream default
+KUBE_KUBELET_LOG_LEVEL=0
+
+##### PROXY
+# Items specific to kubernetes-proxy.service
+
+# upstream default
+KUBE_PROXY_LOG_LEVEL=0
+
+# upstream default
+KUBE_PROXY_CONFIG_FILE='/tmp/proxy_config'

@@ -1,0 +1,16 @@
+[Unit]
+Description=Kubernetes Controller Manager
+
+[Service]
+EnvironmentFile=/etc/sysconfig/kubernetes
+ExecStart=/usr/bin/kubernetes-controller-manager \
+            --alsologtostderr=${KUBE_ALSOLOGTOSTDERR} \
+            --log_dir=${KUBE_LOG_DIR} \
+            --logtostderr=${KUBE_LOGTOSTDERR} \
+            --log_flush_frequency=${KUBE_LOG_FLUSH_FREQ} \
+            --master=${KUBE_MASTER} \
+            --v=${KUBE_CONTROLLER_MANAGER_LOG_LEVEL}
+            
+
+[Install]
+WantedBy=multi-user.target

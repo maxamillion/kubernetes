@@ -1,0 +1,16 @@
+[Unit]
+Description=Kubernetes Proxy
+
+[Service]
+EnvironmentFile=/etc/sysconfig/kubernetes
+ExecStart=/usr/bin/kubernetes-proxy \
+            --alsologtostderr=${KUBE_ALSOLOGTOSTDERR} \
+            --configfile=${KUBE_PROXY_CONFIG_FILE} \
+            --etcd_servers=${KUBE_ETCD_SERVERS} \
+            --logtostderr=${KUBE_LOGTOSTDERR} \
+            --log_dir=${KUBE_LOG_DIR} \
+            --log_flush_frequency=${KUBE_LOG_FLUSH_FREQ} \
+            --v=${KUBE_PROXY_LOG_LEVEL}
+
+[Install]
+WantedBy=multi-user.target

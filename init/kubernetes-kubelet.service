@@ -1,0 +1,26 @@
+[Unit]
+Description=Kubernetes Kubelet
+
+[Service]
+EnvironmentFile=/etc/sysconfig/kubernetes
+ExecStart=/usr/bin/kubernetes-kubelet \
+            --address=${KUBE_KUBELET_ADDRESS} \
+            --alsologtostderr=${KUBE_ALSOLOGTOSTDERR} \
+            --config=${KUBE_KUBELET_CONFIG} \
+            --docker_endpoint=${KUBE_KUBELET_DOCKER_ENDPOINT} \
+            --etcd_servers=${KUBE_ETCD_SERVERS} \
+            --enable_server=${KUBE_KUBELET_INFO_SERVER} \
+            --file_check_frequency=${KUBE_KUBELET_CONFFILE_CHECK_FREQ} \
+            --hostname_override=${KUBE_KUBELETE_HOSTNAME_OVERRIDE} \
+            --http_check_frequency=${KUBE_KUBELET_HTTP_CHECK_FREQ} \
+            --log_dir=${KUBE_LOG_DIR} \
+            --log_flush_frequency=${KUBE_LOG_FLUSH_FREQ} \
+            --logtostderr=${KUBE_LOGTOSTDERR} \
+            --manifest_url=${KUBE_KUBELET_MANIFEST_URL} \
+            --port=${KUBE_KUBELET_PORT} \
+            --root_dir=${KUBE_KUBELET_ROOT_DIR} \
+            --sync_frequency=${KUBE_KUBELET_SYNC_FREQ} \
+            --v=${KUBE_KUBELET_LOG_LEVEL}
+
+[Install]
+WantedBy=multi-user.target

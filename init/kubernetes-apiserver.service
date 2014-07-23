@@ -1,0 +1,24 @@
+[Unit]
+Description=Kubernetes API Server
+
+[Service]
+EnvironmentFile=/etc/sysconfig/kubernetes
+ExecStart=/usr/bin/kubernetes-apiserver \
+            --address=${KUBE_API_ADDRESS} \
+            --alsologtostderr=${KUBE_ALSOLOGTOSTDERR} \
+            --api_prefix=${KUBE_API_PREFIX} \
+            --cloud_provider=${KUBE_CLOUD_PROVIDER} \
+            --etcd_servers=${KUBE_ETCD_SERVERS} \
+            --health_check_minions=${KUBE_HEALTH_CHECK_MINIONS} \
+            --logtostderr=${KUBE_LOGTOSTDERR} \
+            --log_dir=${KUBE_LOG_DIR} \
+            --log_flush_frequency=${KUBE_LOG_FLUSH_FREQ} \
+            --machines=${KUBE_MACHINES} \
+            --minion_cache_ttl=${KUBE_MINION_CACHE_TTL} \
+            --minion_port=${KUBE_MINION_PORT} \
+            --minion_regexp=${KUBE_MINION_REGEX} \
+            --port=${KUBE_API_PORT} \
+            --v=${KUBE_API_LOG_LEVEL}
+
+[Install]
+WantedBy=multi-user.target
